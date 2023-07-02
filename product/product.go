@@ -3,7 +3,10 @@ package main
 import (
 	"io"
 	"log"
+	"net/http"
 	"os"
+
+	"github.com/gorilla/mux"
 )
 
 func loadData() []byte {
@@ -19,6 +22,13 @@ func loadData() []byte {
 	return data
 }
 
+func ListProducts(w http.ResponseWriter, r *http.Request) {
+	products := loadData()
+	w.Write(products)
+}
+
 func main() {
-	log.Println(string(loadData()))
+	r := mux.NewRouter()
+	r.HandleFunc("/products", ListProducts)
+	http.ListenAndServe(":8081", r)
 }
