@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "uuid": "39b66fa8-82a9-4f28-9d9b-98276e0f7c6f",
+      "product_name": "Camiseta",
+      "price": 29.99
+    },
+    {
+      "uuid": "c58102e9-8f03-4f06-bd4d-68fb4f3c1a2d",
+      "product_name": "Calça Jeans",
+      "price": 59.99
+    },
+    {
+      "uuid": "81281fcf-5f16-4f63-b523-5cc8b0e07e27",
+      "product_name": "Tênis",
+      "price": 99.99
+    },
+    {
+      "uuid": "ae7b07d1-4bc7-4a68-8ad7-7d3dc455f737",
+      "product_name": "Óculos de Sol",
+      "price": 79.99
+    },
+    {
+      "uuid": "d7548cbf-33c2-4db9-b5de-89c1e384d9d3",
+      "product_name": "Bolsa",
+      "price": 49.99
+    },
+    {
+      "uuid": "1281abfe-8a55-4ff8-81fe-9371d0984a1a",
+      "product_name": "Jaqueta",
+      "price": 89.99
+    },
+    {
+      "uuid": "26d25b82-48da-4522-85e9-06243c509e4d",
+      "product_name": "Saia",
+      "price": 39.99
+    },
+    {
+      "uuid": "f74db9c4-9370-4f3e-92e5-3dbf9069a49a",
+      "product_name": "Relógio",
+      "price": 149.99
+    },
+    {
+      "uuid": "e3725e29-857f-42ae-a0c2-6812c3ff8d9b",
+      "product_name": "Bermuda",
+      "price": 34.99
+    },
+    {
+      "uuid": "bdefdd7e-31d9-4c68-af0b-1206bfa2f992",
+      "product_name": "Chinelo",
+      "price": 19.99
+    },
+    {
+      "uuid": "3e3c7d6a-2b84-4460-8b4c-d4e9bb741d4f",
+      "product_name": "Vestido",
+      "price": 69.99
+    },
+    {
+      "uuid": "56b52632-1e02-445f-8f0d-36cfa6fd2c35",
+      "product_name": "Mochila",
+      "price": 79.99
+    },
+    {
+      "uuid": "c3d03a45-4465-4497-a35c-faa58ef46b07",
+      "product_name": "Boné",
+      "price": 24.99
+    }
+  ]
+}
