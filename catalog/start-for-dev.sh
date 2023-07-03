@@ -1,0 +1,1 @@
+export PRODUCT_URL=http://localhost:8081 && go run catalog.go 

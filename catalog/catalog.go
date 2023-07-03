@@ -5,6 +5,9 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"text/template"
+
+	"github.com/gorilla/mux"
 )
 
 type Product struct {
@@ -29,7 +32,6 @@ func loadProducts() []Product {
 		println(err)
 	}
 	data, _ := io.ReadAll(response.Body)
-	println(string(data))
 
 	var products Products
 	json.Unmarshal(data, &products)
@@ -38,5 +40,16 @@ func loadProducts() []Product {
 }
 
 func main() {
-	loadProducts()
+	r := mux.NewRouter()
+	r.HandleFunc("/", ListProducts).Methods("GET")
+	http.ListenAndServe(":8080", r)
+}
+
+func ListProducts(w http.ResponseWriter, r *http.Request) {
+	products := loadProducts()
+	for _, p := range products {
+		println(p.ProductName)
+	}
+	t := template.Must(template.ParseFiles("template/catalog.html"))
+	t.Execute(w, products)
 }
