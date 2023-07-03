@@ -42,14 +42,27 @@ func loadProducts() []Product {
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", ListProducts).Methods("GET")
+	r.HandleFunc("/product/{id}", ShowProduct).Methods("GET")
 	http.ListenAndServe(":8080", r)
 }
 
 func ListProducts(w http.ResponseWriter, r *http.Request) {
 	products := loadProducts()
-	for _, p := range products {
-		println(p.ProductName)
-	}
-	t := template.Must(template.ParseFiles("template/catalog.html"))
+	t := template.Must(template.ParseFiles("templates/catalog.html"))
 	t.Execute(w, products)
+}
+
+func ShowProduct(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	response, err := http.Get(productUrl + "/products/" + vars["id"])
+	if err != nil {
+		println("The HTTP request falied with herror %s\n", err)
+	}
+	data, _ := io.ReadAll(response.Body)
+
+	var product Product
+	json.Unmarshal(data, &product)
+
+	t := template.Must(template.ParseFiles("templates/view.html"))
+	t.Execute(w, product)
 }
